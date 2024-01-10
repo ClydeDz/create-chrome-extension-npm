@@ -1,7 +1,7 @@
 {
   "name": "@clydedsouza/create-chrome-extension",
-  "version": "0.0.7",
-  "description": "Template to create a Chrome extension",
+  "version": "0.0.8",
+  "description": "An npx command to create a Chrome extension.",
   "type": "module",
   "bin": {
     "create-chrome-extension": "index.js"
@@ -12,7 +12,23 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": [],
+  "keywords": [
+    "chrome",
+    "chrome extension generator",
+    "chrome extension",
+    "extension developer",
+    "javascript chrome extension",
+    "simple chrome extension",
+    "npx chrome extension",
+    "create chrome extension",
+    "create simple chrome extension",
+    "edge extension",
+    "browser extension",
+    "google chrome",
+    "google chrome browser",
+    "chrome browser",
+    "chrome browser extension"
+  ],
   "author": "Clyde D'Souza",
   "license": "MIT",
   "homepage": "https://github.com/ClydeDz/create-chrome-extension-npm",
