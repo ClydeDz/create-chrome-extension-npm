@@ -1,4 +1,4 @@
-#!/usr/bin/env/node 
+#!/usr/bin/env node
 
 import inquirer from 'inquirer';
 import ora from 'ora';
@@ -7,29 +7,28 @@ import download from 'download-git-repo'
 const templateOptions = {
     comprehensive: {
         gitHubRepository: 'chrome-extension-template',
-        displayName: 'Comprehensive Chrome extension'
+        displayName: 'Comprehensive Chrome Extension (approx. 496 KB)'
     },
     simple: {
         gitHubRepository: 'simple-chrome-extension-template',
-        displayName: 'Simple Chrome extension'
+        displayName: 'Simple Chrome Extension (approx. 12.0 KB)'
     },
 }
 
 const spinner = ora('Downloading...');
 
-const inquirerQuestions = [
+const promptQuestions = [
     {
       name: 'template-choice',
       type: 'list',
-      message: 'What template would you like to generate?',
+      message: 'What extension template would you like to generate?',
       choices: [templateOptions.comprehensive.displayName, templateOptions.simple.displayName]
     }
 ];
  
-inquirer.prompt(inquirerQuestions)
+inquirer.prompt(promptQuestions)
     .then(answers => {
-        const projectChoice = answers['template-choice'];
-        if (projectChoice === templateOptions.comprehensive.displayName) {
+        if (answers['template-choice'] === templateOptions.comprehensive.displayName) {
             downloadRepository(templateOptions.comprehensive.gitHubRepository)
         } else {
             downloadRepository(templateOptions.simple.gitHubRepository)
@@ -40,7 +39,9 @@ inquirer.prompt(inquirerQuestions)
 
 const downloadRepository = (repository) => {    
     spinner.start();
-    download(`clydedz/${repository}`, './', function (err) {
-        err ? spinner.fail('Download failed. Please try again later.') : spinner.succeed('Download complete!');
+    const fileExclusionFilter = { filter: file => file.path.indexOf("docs") < 0 }
+
+    download(`clydedz/${repository}`, './ap8', fileExclusionFilter, function (err) {
+        err ? spinner.fail('Download failed. Please try again later.') : spinner.succeed('Template generated!');
     })
 }
