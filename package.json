@@ -1,13 +1,14 @@
 {
   "name": "@clydedsouza/create-chrome-extension",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "An npx command to create a Chrome extension.",
   "type": "module",
   "bin": {
-    "create-chrome-extension": "index.js"
+    "create-chrome-extension": "index.min.js"
   },
   "scripts": {
-    "start": "node .\\index.js"
+    "start": "node .\\index.js",
+    "minify": "esbuild \"index.js\" --minify --platform=node --outdir=./ --out-extension:.js=.min.js"
   },
   "publishConfig": {
     "access": "public"
@@ -40,5 +41,8 @@
     "download-git-repo": "^3.0.2",
     "inquirer": "^9.2.12",
     "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.11"
   }
 }

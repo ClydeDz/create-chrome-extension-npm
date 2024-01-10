@@ -29,6 +29,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Minify the JavaScript file
+        run: npm run minify
+
       - name: Publish package to npm
         id: publish
         uses: JS-DevTools/npm-publish@v2
