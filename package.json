@@ -1,0 +1,25 @@
+{
+  "name": "@clydedsouza/create-chrome-extension",
+  "version": "0.0.1",
+  "description": "Template to create a Chrome extension",
+  "type": "module",
+  "bin": {
+    "create-chrome-extension": "./index.js"
+  },
+  "scripts": {
+    "start": "node .\\index.js"
+  },
+  "keywords": [],
+  "author": "Clyde D'Souza",
+  "license": "MIT",
+  "homepage": "https://github.com/ClydeDz/create-chrome-extension-npm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ClydeDz/create-chrome-extension-npm"
+  },
+  "dependencies": {
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^9.2.12",
+    "ora": "^8.0.1"
+  }
+}
