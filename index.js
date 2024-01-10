@@ -41,7 +41,7 @@ const downloadRepository = (repository) => {
     spinner.start();
     const fileExclusionFilter = { filter: file => file.path.indexOf("docs") < 0 };
 
-    download(`clydedz/${repository}`, './ap8', fileExclusionFilter, function (err) {
+    download(`clydedz/${repository}`, './', fileExclusionFilter, function (err) {
         err ? spinner.fail('Download failed. Please try again later.') : spinner.succeed('Template generated!');
     });
 }
