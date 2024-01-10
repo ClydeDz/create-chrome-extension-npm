@@ -13,7 +13,7 @@ const templateOptions = {
         gitHubRepository: 'simple-chrome-extension-template',
         displayName: 'Simple Chrome Extension (approx. 12.0 KB)'
     },
-}
+};
 
 const spinner = ora('Downloading...');
 
@@ -29,19 +29,19 @@ const promptQuestions = [
 inquirer.prompt(promptQuestions)
     .then(answers => {
         if (answers['template-choice'] === templateOptions.comprehensive.displayName) {
-            downloadRepository(templateOptions.comprehensive.gitHubRepository)
+            downloadRepository(templateOptions.comprehensive.gitHubRepository);
         } else {
-            downloadRepository(templateOptions.simple.gitHubRepository)
+            downloadRepository(templateOptions.simple.gitHubRepository);
         }
     }).catch((e) => {
-        spinner.fail('Download failed due to - ' + e)
+        spinner.fail('Download failed due to - ' + e);
     });
 
 const downloadRepository = (repository) => {    
     spinner.start();
-    const fileExclusionFilter = { filter: file => file.path.indexOf("docs") < 0 }
+    const fileExclusionFilter = { filter: file => file.path.indexOf("docs") < 0 };
 
     download(`clydedz/${repository}`, './ap8', fileExclusionFilter, function (err) {
         err ? spinner.fail('Download failed. Please try again later.') : spinner.succeed('Template generated!');
-    })
+    });
 }
