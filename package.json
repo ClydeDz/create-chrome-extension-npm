@@ -1,6 +1,6 @@
 {
   "name": "@clydedsouza/create-chrome-extension",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "An npx command to create a Chrome extension.",
   "type": "module",
   "bin": {
